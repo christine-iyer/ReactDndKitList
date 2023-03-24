@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+
 let nextId = 0;
 
 export default function Artists() {
@@ -14,10 +15,10 @@ export default function Artists() {
         onChange={e => setName(e.target.value)}
       />
       <button onClick={() => {
-        artists.push({
-          id: nextId++,
-          name: name,
-        });
+        setArtists([...artists,
+          {id: nextId++,
+          name: name}
+        ]);
       }}>Add</button>
       <ul>
         {artists.map(artist => (

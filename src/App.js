@@ -1,4 +1,6 @@
 import Artists from './components/assets/Artists';
+import { SortableItem } from './SortableItem';
+import Filter from './components/Filter'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -12,7 +14,6 @@ import {
   verticalListSortingStrategy
 } from "@dnd-kit/sortable";
 import {useState} from 'react';
-import { SortableItem } from './SortableItem';
 
 function App() {
 
@@ -20,21 +21,23 @@ function App() {
 
   return (
 
-    <DndContext
-      collisionDetection={closestCenter}
-      onDragEnd={handleDragEnd}
-    >
-      <Container className="p-3" style={{"width": "50%"}} align="center">
-        <h3>The best programming languages!</h3>
-        <SortableContext
-          items={languages}
-          strategy={verticalListSortingStrategy}
-        >
-          {/* We need components that use the useSortable hook */}
-          {languages.map(language => <SortableItem key={language} id={language}/>)}
-        </SortableContext>
-      </Container>
-    </DndContext>
+    // <DndContext
+    //   collisionDetection={closestCenter}
+    //   onDragEnd={handleDragEnd}
+    // >
+    //   <Container className="p-3" style={{"width": "50%"}} align="center">
+    //     <h3>The best programming languages!</h3>
+    //     <SortableContext
+    //       items={languages}
+    //       strategy={verticalListSortingStrategy}
+    //     >
+    //       {/* We need components that use the useSortable hook */}
+    //       {languages.map(language => <SortableItem key={language} id={language}/>)}
+    //     </SortableContext>
+    //   </Container>
+    // </DndContext>
+    // <Artists/>
+    <Filter />
 
 
   );
