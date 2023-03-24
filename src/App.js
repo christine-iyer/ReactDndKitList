@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import Artists from './components/assets/Artists';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -15,9 +15,11 @@ import {useState} from 'react';
 import { SortableItem } from './SortableItem';
 
 function App() {
+
   const [languages, setLanguages ] = useState(["JavaScript", "Python", "TypeScript"]);
 
   return (
+
     <DndContext
       collisionDetection={closestCenter}
       onDragEnd={handleDragEnd}
@@ -33,6 +35,8 @@ function App() {
         </SortableContext>
       </Container>
     </DndContext>
+
+
   );
 
   function handleDragEnd(event) {
@@ -47,10 +51,7 @@ function App() {
         const overIndex = items.indexOf(over.id);
         console.log(arrayMove(items, activeIndex, overIndex));
         return arrayMove(items, activeIndex, overIndex);
-        // items: [2, 3, 1]   0  -> 2
-        // [1, 2, 3] oldIndex: 0 newIndex: 2  -> [2, 3, 1] 
       });
-      
     }
   }
 }
