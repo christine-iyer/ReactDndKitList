@@ -4,10 +4,10 @@ import Filter from './components/Filter'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
-import {
-  DndContext,
-  closestCenter
-} from "@dnd-kit/core";
+// import {
+//   DndContext,
+//   closestCenter
+// } from "@dnd-kit/core";
 import {
   arrayMove,
   SortableContext,
