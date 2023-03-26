@@ -1,5 +1,7 @@
+import Card from 'react-bootstrap/Card';
+import { Button } from 'react-bootstrap';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { useState } from 'react';
-
 let initialArtists = [
   { id: 0, name: 'Marta Colvin Andrade' },
   { id: 1, name: 'Lamidi Olonade Fakeye'},
@@ -12,13 +14,15 @@ export default function List() {
   );
 
   return (
-    <>
+    <div>
       <h1>Inspiring sculptors:</h1>
-      <ul>
+      <ListGroup horizontal>
         {artists.map(artist => (
-          <li key={artist.id}>
+          <ListGroup.Item key={artist.id}>
             {artist.name}{' '}
-            <button onClick={() => {
+            <Button
+            variant="secondary" size="sm" 
+            onClick={() => {
               setArtists(
                 artists.filter(a =>
                   a.id !== artist.id
@@ -26,10 +30,10 @@ export default function List() {
               );
             }}>
               Delete
-            </button>
-          </li>
+            </Button>
+          </ListGroup.Item>
         ))}
-      </ul>
-    </>
+      </ListGroup>
+    </div>
   );
 }

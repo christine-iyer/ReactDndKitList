@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button'
 
 
 let nextId = 0;
@@ -14,12 +15,12 @@ export default function Artists() {
         value={name}
         onChange={e => setName(e.target.value)}
       />
-      <button onClick={() => {
+      <Button onClick={() => {
         setArtists([...artists,
           {id: nextId++,
           name: name}
         ]);
-      }}>Add</button>
+      }}>Add</Button>
       <ul>
         {artists.map(artist => (
           <li key={artist.id}>{artist.name}</li>
