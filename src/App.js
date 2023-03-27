@@ -25,30 +25,9 @@ import {
 import {useState} from 'react';
 import Variant from './components/Variant';
 
-
 function App() {
-    // const [languages, setLanguages ] =  // const [languages, setLanguages ] =[
-    { symbol: "GOOGL", purchasePrice: 143.49,  shares: 100 },
-    { symbol: "TSLA", purchasePrice: 242.54, shares: 45 },
-    { symbol: "AMZN", purchasePrice: 160.00, shares: 80 },
-    { symbol: "BA", purchasePrice: 188.59, shares: 25},
-    { symbol: "COIN", purchasePrice: 257.31, shares:50 },
-    { symbol: "AAPL", purchasePrice: 114.56, shares:200},
-    { symbol: "CVS", purchasePrice: 89.83, shares: 25 },
-    { symbol: "GS", purchasePrice: 342.94, shares: 10 },
-    { symbol: "MS", purchasePrice: 98.39, shares: 25 },
-    { symbol: "NVDA", purchasePrice: 293.75, shares: 5 },
-    { symbol: "PYPL", purchasePrice: 191.57, shares: 10 },
-    { symbol: "PFE", purchasePrice: 47.45, shares: 100 },
-    { symbol: "CRM", purchasePrice: 160.38, shares: 20 },
-    { symbol: "SBUX", purchasePrice: 102.99, shares: 25 },
-    { symbol: "DIS", purchasePrice: 151.93, shares: 10 },
-    { symbol: "VTI", purchasePrice: 239.05, shares: 10 },
-    { symbol: "LI", purchasePrice: 32.53, shares: 225 }
-    
-  ];
 
-  // const [languages, setLanguages ] = useState(["JavaScript", "Python", "TypeScript"]);
+  const [languages, setLanguages ] = useState(["JavaScript", "Python", "TypeScript"]);
 
   return (
 
@@ -62,11 +41,11 @@ function App() {
       <Container className="p-3" style={{"width": "50%"}} align="center">
         <h3>The best programming languages!</h3>
         <SortableContext
-          items={assets}
+          items={languages}
           strategy={verticalListSortingStrategy}
         >
           {/* We need components that use the useSortable hook */}
-          {assets.map(asset => <SortableItem key={asset.symbol} id={asset.symbol}/>)}
+          {languages.map(language => <SortableItem key={language} id={language}/>)}
         </SortableContext>
       </Container>
     </DndContext>
@@ -112,7 +91,7 @@ function App() {
     console.log("OVER :" + over.id);
 
     if(active.id !== over.id) {
-      setAssets((items) => {
+      setLanguages((items) => {
         const activeIndex = items.indexOf(active.id);
         const overIndex = items.indexOf(over.id);
         console.log(arrayMove(items, activeIndex, overIndex));
