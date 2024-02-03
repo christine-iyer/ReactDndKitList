@@ -1,18 +1,8 @@
-import Artists from './components/assets/Artists';
 import { SortableItem } from './SortableItem';
-import Filter from './components/Filter'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
-import FileInput from './components/FileInput'
-import ColorPicker from './components/ColorPicker'
-import Select from './components/Select'
-import Radio from './components/Radio'
-import Range from './components/Range'
-import InputGroup from './components/InputGroup'
-import Layout from './components/Layout'
-import  AlertDismissibleExample  from './components/Error';
-import Modal from './components/Modal'
+import QuizPage from './components/Quiz/pages/QuizPage';
 import {
   DndContext,
   closestCenter
@@ -20,67 +10,41 @@ import {
 import {
   arrayMove,
   SortableContext,
-  verticalListSortingStrategy
+  horizontalListSortingStrategy
 } from "@dnd-kit/sortable";
 import {useState} from 'react';
-import Variant from './components/Variant';
 
 function App() {
+  const alphabet = Array.from({ length: 26}, (v, n) => String.fromCharCode(n + 97));
+  const [languages, setLanguages ] = useState([...alphabet]);
 
-  const [languages, setLanguages ] = useState(["JavaScript", "Python", "TypeScript"]);
 
   return (
 
-
+    <div>
 
     <div>
           <DndContext
       collisionDetection={closestCenter}
       onDragEnd={handleDragEnd}
     >
-      <Container className="p-3" style={{"width": "50%"}} align="center">
+      <Container className="p-3" style={{"width": "11%"}} align="center">
         <h3>The best programming languages!</h3>
         <SortableContext
           items={languages}
-          strategy={verticalListSortingStrategy}
+          strategy={horizontalListSortingStrategy}
         >
           {/* We need components that use the useSortable hook */}
           {languages.map(language => <SortableItem key={language} id={language}/>)}
         </SortableContext>
       </Container>
     </DndContext>
-      <Artists/>
-      <Variant />
-      <Modal/>
-    <div>
-    <Filter />
-    
- </div>
- <br />
- <div>
-     <FileInput />
-    
- </div>
- <div>
-  <ColorPicker />
- </div>
- <div>
-  <Select/>
- </div>
- <div>
-  <Radio />
- </div>
- <div>
-  <Range />
- </div>
- <div>
-  <InputGroup />
- </div>
- <div>
-  <Layout />
- </div>
- <AlertDismissibleExample />
- </div>
+    </div>
+    <hr></hr>
+    <QuizPage />
+   </div>
+      
+
 
   );
 
