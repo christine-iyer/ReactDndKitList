@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import FlashcardList from '../components/FlashcardList'
-
+import './styles.css'
 
 export default function QuizPage() {
      const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS)
@@ -17,7 +17,7 @@ const SAMPLE_FLASHCARDS = [
           id: 1,
           question: "What is 3*3",
           answer: 9,
-          option: [
+          options: [
                '9',
                '11',
                '6',
@@ -28,7 +28,7 @@ const SAMPLE_FLASHCARDS = [
           id: 2,
           question: "What is the capitol of Maine",
           answer: 'Augusta',
-          option: [
+          options: [
                'Portland',
                'Oslo',
                'Lewiston',

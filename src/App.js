@@ -22,10 +22,7 @@ function App() {
   return (
 
     <div>
-
-      
-
-      <QuizPage />
+<QuizPage />
     </div>
 
 

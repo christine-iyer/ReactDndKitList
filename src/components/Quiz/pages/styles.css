@@ -1,0 +1,14 @@
+.card {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+     border-radius: .25rem;
+     box-shadow: 0 0 5px 2px rgb(239, 235, 220);
+     background-color: rgb(243, 230,203);
+     transform-style: preserve-3d;
+     transition: 150ms;
+     cursor: pointer;
+     transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+   }
+   
