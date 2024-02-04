@@ -4,6 +4,7 @@ import FlashcardList from '../components/FlashcardList'
 
 export default function QuizPage() {
      const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS)
+     
      return (
           <div>
                <FlashcardList 
