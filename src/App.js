@@ -15,8 +15,8 @@ import {
 import { useState } from 'react';
 
 function App() {
-  const alphabet = Array.from({ length: 26 }, (v, n) => String.fromCharCode(n + 97));
-  const [languages, setLanguages] = useState([...alphabet]);
+  // const alphabet = Array.from({ length: 26 }, (v, n) => String.fromCharCode(n + 97));
+  // const [languages, setLanguages] = useState([...alphabet]);
 
 
   return (
@@ -32,21 +32,21 @@ function App() {
 
   );
 
-  function handleDragEnd(event) {
-    console.log("Drag end called");
-    const { active, over } = event;
-    console.log("ACTIVE: " + active.id);
-    console.log("OVER :" + over.id);
+  // function handleDragEnd(event) {
+  //   console.log("Drag end called");
+  //   const { active, over } = event;
+  //   console.log("ACTIVE: " + active.id);
+  //   console.log("OVER :" + over.id);
 
-    if (active.id !== over.id) {
-      setLanguages((items) => {
-        const activeIndex = items.indexOf(active.id);
-        const overIndex = items.indexOf(over.id);
-        console.log(arrayMove(items, activeIndex, overIndex));
-        return arrayMove(items, activeIndex, overIndex);
-      });
-    }
-  }
+  //   if (active.id !== over.id) {
+  //     setLanguages((items) => {
+  //       const activeIndex = items.indexOf(active.id);
+  //       const overIndex = items.indexOf(over.id);
+  //       console.log(arrayMove(items, activeIndex, overIndex));
+  //       return arrayMove(items, activeIndex, overIndex);
+  //     });
+  //   }
+  // }
 }
 
 export default App;
