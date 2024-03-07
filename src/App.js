@@ -15,34 +15,34 @@ import {
 import { useState } from 'react';
 
 function App() {
-const alphabet = Array.from({ length: 3 }, (v, n) => String.fromCharCode(n + 97));
+  const alphabet = Array.from({ length: 3 }, (v, n) => String.fromCharCode(n + 97));
 
-// const alphabet = [
-//   {id: 0, value: "A"},
-//   {id: 1, value: "B"},
-//   {id: 2, value: "C"},
-// ]
+  // const alphabet = [
+  //   {id: 0, value: "A"},
+  //   {id: 1, value: "B"},
+  //   {id: 2, value: "C"},
+  // ]
 
-const [abcs, setAbcs] = useState([...alphabet]);
-return (
+  const [abcs, setAbcs] = useState([...alphabet]);
+  return (
 
     <div>
-               <DndContext
-      collisionDetection={closestCenter}
-      onDragEnd={handleDragEnd}
-    >
-      <Container className="p-3" style={{"width": "50%"}} align="center">
-        <h3>The A B C</h3>
-        <SortableContext
-          items={abcs}
-          strategy={verticalListSortingStrategy}
-        >
-          {abcs.map(abc => <SortableItem key={abc} id={abc}/>)}
-        </SortableContext>
-      </Container>
-    </DndContext>
+      <DndContext
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+      >
+        <Container className="p-3" style={{ "width": "50%" }} align="center">
+          <h3>The A B C</h3>
+          <SortableContext
+            items={abcs}
+            strategy={verticalListSortingStrategy}
+          >
+            {abcs.map(abc => <SortableItem key={abc} id={abc} />)}
+          </SortableContext>
+        </Container>
+      </DndContext>
     </div>
-);
+  );
 
   function handleDragEnd(event) {
     console.log("Drag end called");
