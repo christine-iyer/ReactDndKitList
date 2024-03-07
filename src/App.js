@@ -15,12 +15,16 @@ import {
 import { useState } from 'react';
 
 function App() {
-const alphabet = Array.from({ length: 26 }, (v, n) => String.fromCharCode(n + 97));
-const [bookmarks, setBookmarks] = useState([...alphabet]);
+const alphabet = Array.from({ length: 3 }, (v, n) => String.fromCharCode(n + 97));
 
+// const alphabet = [
+//   {id: 0, value: "A"},
+//   {id: 1, value: "B"},
+//   {id: 2, value: "C"},
+// ]
 
-
-  return (
+const [abcs, setAbcs] = useState([...alphabet]);
+return (
 
     <div>
                <DndContext
@@ -28,21 +32,17 @@ const [bookmarks, setBookmarks] = useState([...alphabet]);
       onDragEnd={handleDragEnd}
     >
       <Container className="p-3" style={{"width": "50%"}} align="center">
-        <h3>The best programming languages!</h3>
+        <h3>The A B C</h3>
         <SortableContext
-          items={bookmarks}
+          items={abcs}
           strategy={verticalListSortingStrategy}
         >
-          {/* We need components that use the useSortable hook */}
-          {bookmarks.map(bookmark => <SortableItem key={bookmark} id={bookmark}/>)}
+          {abcs.map(abc => <SortableItem key={abc} id={abc}/>)}
         </SortableContext>
       </Container>
     </DndContext>
     </div>
-
-
-
-  );
+);
 
   function handleDragEnd(event) {
     console.log("Drag end called");
@@ -51,7 +51,7 @@ const [bookmarks, setBookmarks] = useState([...alphabet]);
     console.log("OVER :" + over.id);
 
     if (active.id !== over.id) {
-      setBookmarks((items) => {
+      setAbcs((items) => {
         const activeIndex = items.indexOf(active.id);
         const overIndex = items.indexOf(over.id);
         console.log(arrayMove(items, activeIndex, overIndex));
