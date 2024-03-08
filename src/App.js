@@ -16,8 +16,7 @@ import { useState } from 'react';
 
 function App() {
   const alphabet = Array.from({ length: 3 }, (v, n) => String.fromCharCode(n + 97));
-
-  // const alphabet = [
+// const alphabet = [
   //   {id: 0, value: "A"},
   //   {id: 1, value: "B"},
   //   {id: 2, value: "C"},
@@ -31,7 +30,7 @@ function App() {
         collisionDetection={closestCenter}
         onDragEnd={handleDragEnd}
       >
-        <Container className="p-3" style={{ "width": "50%" }} align="center">
+        <Container className="p-3" style={{ "width": "20%" }} align="center">
           <h3>The A B C</h3>
           <SortableContext
             items={abcs}
