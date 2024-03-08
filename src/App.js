@@ -1,3 +1,4 @@
+
 import { SortableItem } from './SortableItem';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,12 +16,12 @@ import {
 import { useState } from 'react';
 
 function App() {
-  const alphabet = Array.from({ length: 3 }, (v, n) => String.fromCharCode(n + 97));
-// const alphabet = [
-  //   {id: 0, value: "A"},
-  //   {id: 1, value: "B"},
-  //   {id: 2, value: "C"},
-  // ]
+  //const alphabet = Array.from({ length: 3 }, (v, n) => String.fromCharCode(n + 97));
+  const alphabet = [
+    { id: 0, value: "A" },
+    { id: 1, value: "B" },
+    { id: 2, value: "C" }
+  ]
 
   const [abcs, setAbcs] = useState([...alphabet]);
   return (
@@ -36,8 +37,17 @@ function App() {
             items={abcs}
             strategy={verticalListSortingStrategy}
           >
-            {abcs.map(abc => <SortableItem key={abc} id={abc} />)}
+            {abcs.map((abc) => <SortableItem key={abc.id} id={abc.id} />)}
           </SortableContext>
+
+          {/* const itemEls = useRef({})
+{items.map((item, index)) => (
+ <p key={item} ref={(element) => itemEls.current[index] = element}>{item}</p>
+)) */}
+
+
+
+
         </Container>
       </DndContext>
     </div>
