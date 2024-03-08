@@ -27,7 +27,7 @@ export default function Flashcard({ flashcard }) {
       onClick={() => setFlip(!flip)}
     >
       <div className="front" ref={frontEl}>
-      <img style={{ "borderRadius": "5%", "objectFit": "contain", "width": "100%", "height": "15vw" }} src={flashcard.question} alt={flashcard.answer} />
+      <card style={{ "borderRadius": "5%", "objectFit": "contain", "width": "100%", "height": "15vw" }} value={flashcard.question} />
         {flashcard.question}
         <div className="flashcard-options">
           {flashcard.options.map(option => {

@@ -3,6 +3,7 @@ import { SortableItem } from './SortableItem';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
+import QuizPage from '../src/components/Quiz/pages/QuizPage'
 
 import {
   DndContext,
@@ -18,15 +19,16 @@ import { useState } from 'react';
 function App() {
   //const alphabet = Array.from({ length: 3 }, (v, n) => String.fromCharCode(n + 97));
   const alphabet = [
-    { id: 0, value: "A" },
-    { id: 1, value: "B" },
-    { id: 2, value: "C" }
+    { id: 1, value: "A" },
+    { id: 2, value: "B" },
+    { id: 3, value: "C" }
   ]
 
   const [abcs, setAbcs] = useState([...alphabet]);
   return (
 
     <div>
+      <QuizPage />
       <DndContext
         collisionDetection={closestCenter}
         onDragEnd={handleDragEnd}
@@ -37,14 +39,10 @@ function App() {
             items={abcs}
             strategy={verticalListSortingStrategy}
           >
-            {abcs.map((abc) => <SortableItem key={abc.id} id={abc.id} />)}
+           {abcs.map(({id, value}) => <SortableItem key={id} id={id} value={value} />)}
           </SortableContext>
 
-          {/* const itemEls = useRef({})
-{items.map((item, index)) => (
- <p key={item} ref={(element) => itemEls.current[index] = element}>{item}</p>
-)) */}
-
+         
 
 
 
@@ -61,8 +59,10 @@ function App() {
 
     if (active.id !== over.id) {
       setAbcs((items) => {
-        const activeIndex = items.indexOf(active.id);
-        const overIndex = items.indexOf(over.id);
+        // const activeIndex = items.indexOf(active.id);
+        // const overIndex = items.indexOf(over.id);
+        const activeIndex = items.findIndex(({ id }) => id ===  active.id);
+        const overIndex = items.findIndex(({ id }) => id ===  over.id);
         console.log(arrayMove(items, activeIndex, overIndex));
         return arrayMove(items, activeIndex, overIndex);
       });

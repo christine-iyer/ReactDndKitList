@@ -4,9 +4,6 @@ import Card from 'react-bootstrap/Card';
 
 export function SortableItem(props) {
 
-    
-    // props.id
-    // JavaScript
 
     const {
         attributes,
@@ -23,7 +20,7 @@ export function SortableItem(props) {
 
     return (
         <div  ref={setNodeRef} style={style} {...attributes} {...listeners}>
-            <Card body className="m-3">{props.id}</Card>
+            <Card body className="m-3">{props.value}</Card>
         </div>
     )
 }
