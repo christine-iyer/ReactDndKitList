@@ -15,12 +15,12 @@ import {
 import { useState } from 'react';
 
 function App() {
-  const alphabet = Array.from({ length: 3 }, (v, n) => String.fromCharCode(n + 97));
-// const alphabet = [
-  //   {id: 0, value: "A"},
-  //   {id: 1, value: "B"},
-  //   {id: 2, value: "C"},
-  // ]
+  // const alphabet = Array.from({ length: 3 }, (v, n) => String.fromCharCode(n + 97));
+  const alphabet = [
+    {id: 1, value: "A"}, // <-- a `0` id value causes the element to not be draggable (probably a bad falsy check somewhere)
+    {id: 2, value: "B"},
+    {id: 3, value: "C"},
+  ]
 
   const [abcs, setAbcs] = useState([...alphabet]);
   return (
@@ -36,7 +36,7 @@ function App() {
             items={abcs}
             strategy={verticalListSortingStrategy}
           >
-            {abcs.map(abc => <SortableItem key={abc} id={abc} />)}
+            {abcs.map(({id, value}) => <SortableItem key={id} id={id} value={value} />)}
           </SortableContext>
         </Container>
       </DndContext>
@@ -51,8 +51,8 @@ function App() {
 
     if (active.id !== over.id) {
       setAbcs((items) => {
-        const activeIndex = items.indexOf(active.id);
-        const overIndex = items.indexOf(over.id);
+        const activeIndex = items.findIndex(({ id }) => id ===  active.id);
+        const overIndex = items.findIndex(({ id }) => id ===  over.id);
         console.log(arrayMove(items, activeIndex, overIndex));
         return arrayMove(items, activeIndex, overIndex);
       });
